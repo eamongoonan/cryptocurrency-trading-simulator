@@ -1,4 +1,4 @@
-# 2023-ca326-mdortie-tradingbot
+# cryptocurrency-trading-simulator
 
 
 
