@@ -1,0 +1,612 @@
+{% extends "base.html" %}
+{% block title %}Crypto Trader Performance and Positions{% endblock %}
+
+{% block content %}
+
+<head>
+	<title style="color: mediumpurple;">Crypto Trader Performance and Positions</title>
+	<style>
+		body {
+			background: lightgrey;
+			font-family: Georgia, serif;
+			margin: 0;
+			padding: 0;
+		}
+
+		h1 {
+			font-family: Tahoma, sans-serif;
+			text-align: center;
+			margin: 20px 0;
+		}
+
+		h2 {
+			font-family: Tahoma, sans-serif;
+			text-align: center;
+			margin: 30px 0 10px;
+		}
+
+		h3 {
+			margin: 20px 0 10px;
+		}
+
+		table {
+			border-collapse: collapse;
+			margin: 0 auto;
+			width: 80%;
+		}
+
+		table th,
+		table td {
+			border: 1px solid black;
+			padding: 5px;
+			text-align: center;
+		}
+
+		table th {
+			background-color: #f5f5f5;
+			font-weight: bold;
+		}
+
+		table tr:nth-child(even) {
+			background-color: #f5f5f5;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Crypto Traders Performance and Positions</h1>
+
+	<h2>Trader 1</h2>
+	<h3>Performance</h3>
+	<table>
+		<thead>
+			<tr>
+				<th>Timeframe</th>
+				<th>PNL</th>
+				<th>ROI</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Weekly</td>
+				<td id="w-pnl-1">$10,000</td>
+				<td id="w-roi-1">5%</td>
+			</tr>
+			<tr>
+				<td>Monthly</td>
+				<td id="m-pnl-1">$30,000</td>
+				<td id="m-roi-1">15%</td>
+			</tr>
+			<tr>
+				<td>Total</td>
+				<td id="a-pnl-1">$100,000</td>
+				<td id="a-roi-1">50%</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<h3>Positions</h3>
+	<table>
+		<thead>
+			<tr>
+				<th>Coin</th>
+				<th>Position</th>
+				<th>Entry Price</th>
+				<th>Size</th>
+				<th>Leverage</th>
+				<th>PNL</th>
+				<th>ROI</th>
+			</tr>
+		</thead>
+		<tbody id="position-rows-1">
+			<!-- <tr>
+				<td>Bitcoin</td>
+				<td>Long</td>
+				<td>$50,000</td>
+				<td>2 BTC</td>
+				<td>5x</td>
+				<td>$1,000</td>
+				<td>10%</td>
+			</tr>
+			<tr>
+				<td>Ethereum</td>
+				<td>Short</td>
+				<td>$2,000</td>
+				<td>2 ETH</td>
+				<td>2x</td>
+				<td>$500</td>
+				<td>5%</td>
+			</tr> -->
+		</tbody>
+	</table>
+
+	<!-- repeat for traders 2-7-->
+	<h2>Trader 2</h2>
+	<h3>Performance</h3>
+	<table>
+		<thead>
+			<tr>
+				<th>Timeframe</th>
+				<th>PNL</th>
+				<th>ROI</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Weekly</td>
+				<td id="w-pnl-2">$10,000</td>
+				<td id="w-roi-2">5%</td>
+			</tr>
+			<tr>
+				<td>Monthly</td>
+				<td id="m-pnl-2">$30,000</td>
+				<td id="m-roi-2">15%</td>
+			</tr>
+			<tr>
+				<td>Total</td>
+				<td id="a-pnl-2">$100,000</td>
+				<td id="a-roi-2">50%</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<h3>Positions</h3>
+	<table>
+		<thead>
+			<tr>
+				<th>Coin</th>
+				<th>Position</th>
+				<th>Entry Price</th>
+				<th>Size</th>
+				<th>Leverage</th>
+				<th>PNL</th>
+				<th>ROI</th>
+			</tr>
+		</thead>
+		<tbody id="position-rows-2">
+			<!-- <tr>
+				<td>Bitcoin</td>
+				<td>Long</td>
+				<td>$50,000</td>
+				<td>2 BTC</td>
+				<td>5x</td>
+				<td>$1,000</td>
+				<td>10%</td>
+			</tr>
+			<tr>
+				<td>Ethereum</td>
+				<td>Short</td>
+				<td>$2,000</td>
+				<td>2 ETH</td>
+				<td>2x</td>
+				<td>$500</td>
+				<td>5%</td>
+			</tr> -->
+		</tbody>
+	</table>
+
+		<h2>Trader 3</h2>
+	<h3>Performance</h3>
+	<table>
+		<thead>
+			<tr>
+				<th>Timeframe</th>
+				<th>PNL</th>
+				<th>ROI</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Weekly</td>
+				<td id="w-pnl-3">$10,000</td>
+				<td id="w-roi-3">5%</td>
+			</tr>
+			<tr>
+				<td>Monthly</td>
+				<td id="m-pnl-3">$30,000</td>
+				<td id="m-roi-3">15%</td>
+			</tr>
+			<tr>
+				<td>Total</td>
+				<td id="a-pnl-3">$100,000</td>
+				<td id="a-roi-3">50%</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<h3>Positions</h3>
+	<table>
+		<thead>
+			<tr>
+				<th>Coin</th>
+				<th>Position</th>
+				<th>Entry Price</th>
+				<th>Size</th>
+				<th>Leverage</th>
+				<th>PNL</th>
+				<th>ROI</th>
+			</tr>
+		</thead>
+		<tbody id="position-rows-3">
+			<!-- <tr>
+				<td>Bitcoin</td>
+				<td>Long</td>
+				<td>$50,000</td>
+				<td>2 BTC</td>
+				<td>5x</td>
+				<td>$1,000</td>
+				<td>10%</td>
+			</tr>
+			<tr>
+				<td>Ethereum</td>
+				<td>Short</td>
+				<td>$2,000</td>
+				<td>2 ETH</td>
+				<td>2x</td>
+				<td>$500</td>
+				<td>5%</td>
+			</tr> -->
+		</tbody>
+	</table>
+
+		<h2>Trader 4</h2>
+	<h3>Performance</h3>
+	<table>
+		<thead>
+			<tr>
+				<th>Timeframe</th>
+				<th>PNL</th>
+				<th>ROI</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Weekly</td>
+				<td id="w-pnl-4">$10,000</td>
+				<td id="w-roi-4">5%</td>
+			</tr>
+			<tr>
+				<td>Monthly</td>
+				<td id="m-pnl-4">$30,000</td>
+				<td id="m-roi-4">15%</td>
+			</tr>
+			<tr>
+				<td>Total</td>
+				<td id="a-pnl-4">$100,000</td>
+				<td id="a-roi-4">50%</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<h3>Positions</h3>
+	<table>
+		<thead>
+			<tr>
+				<th>Coin</th>
+				<th>Position</th>
+				<th>Entry Price</th>
+				<th>Size</th>
+				<th>Leverage</th>
+				<th>PNL</th>
+				<th>ROI</th>
+			</tr>
+		</thead>
+		<tbody id="position-rows-4">
+			<!-- <tr>
+				<td>Bitcoin</td>
+				<td>Long</td>
+				<td>$50,000</td>
+				<td>2 BTC</td>
+				<td>5x</td>
+				<td>$1,000</td>
+				<td>10%</td>
+			</tr>
+			<tr>
+				<td>Ethereum</td>
+				<td>Short</td>
+				<td>$2,000</td>
+				<td>2 ETH</td>
+				<td>2x</td>
+				<td>$500</td>
+				<td>5%</td>
+			</tr> -->
+		</tbody>
+	</table>
+
+		<h2>Trader 5</h2>
+	<h3>Performance</h3>
+	<table>
+		<thead>
+			<tr>
+				<th>Timeframe</th>
+				<th>PNL</th>
+				<th>ROI</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Weekly</td>
+				<td id="w-pnl-5">$10,000</td>
+				<td id="w-roi-5">5%</td>
+			</tr>
+			<tr>
+				<td>Monthly</td>
+				<td id="m-pnl-5">$30,000</td>
+				<td id="m-roi-5">15%</td>
+			</tr>
+			<tr>
+				<td>Total</td>
+				<td id="a-pnl-5">$100,000</td>
+				<td id="a-roi-5">50%</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<h3>Positions</h3>
+	<table>
+		<thead>
+			<tr>
+				<th>Coin</th>
+				<th>Position</th>
+				<th>Entry Price</th>
+				<th>Size</th>
+				<th>Leverage</th>
+				<th>PNL</th>
+				<th>ROI</th>
+			</tr>
+		</thead>
+		<tbody id="position-rows-5">
+			<!-- <tr>
+				<td>Bitcoin</td>
+				<td>Long</td>
+				<td>$50,000</td>
+				<td>2 BTC</td>
+				<td>5x</td>
+				<td>$1,000</td>
+				<td>10%</td>
+			</tr>
+			<tr>
+				<td>Ethereum</td>
+				<td>Short</td>
+				<td>$2,000</td>
+				<td>2 ETH</td>
+				<td>2x</td>
+				<td>$500</td>
+				<td>5%</td>
+			</tr> -->
+		</tbody>
+	</table>
+
+		<h2>Trader 6</h2>
+	<h3>Performance</h3>
+	<table>
+		<thead>
+			<tr>
+				<th>Timeframe</th>
+				<th>PNL</th>
+				<th>ROI</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Weekly</td>
+				<td id="w-pnl-6">$10,000</td>
+				<td id="w-roi-6">5%</td>
+			</tr>
+			<tr>
+				<td>Monthly</td>
+				<td id="m-pnl-6">$30,000</td>
+				<td id="m-roi-6">15%</td>
+			</tr>
+			<tr>
+				<td>Total</td>
+				<td id="a-pnl-6">$100,000</td>
+				<td id="a-roi-6">50%</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<h3>Positions</h3>
+	<table>
+		<thead>
+			<tr>
+				<th>Coin</th>
+				<th>Position</th>
+				<th>Entry Price</th>
+				<th>Size</th>
+				<th>Leverage</th>
+				<th>PNL</th>
+				<th>ROI</th>
+			</tr>
+		</thead>
+		<tbody id="position-rows-6">
+			<!-- <tr>
+				<td>Bitcoin</td>
+				<td>Long</td>
+				<td>$50,000</td>
+				<td>2 BTC</td>
+				<td>5x</td>
+				<td>$1,000</td>
+				<td>10%</td>
+			</tr>
+			<tr>
+				<td>Ethereum</td>
+				<td>Short</td>
+				<td>$2,000</td>
+				<td>2 ETH</td>
+				<td>2x</td>
+				<td>$500</td>
+				<td>5%</td>
+			</tr> -->
+		</tbody>
+	</table>
+
+		<h2>Trader 7</h2>
+	<h3>Performance</h3>
+	<table>
+		<thead>
+			<tr>
+				<th>Timeframe</th>
+				<th>PNL</th>
+				<th>ROI</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Weekly</td>
+				<td id="w-pnl-7">$10,000</td>
+				<td id="w-roi-7">5%</td>
+			</tr>
+			<tr>
+				<td>Monthly</td>
+				<td id="m-pnl-7">$30,000</td>
+				<td id="m-roi-7">15%</td>
+			</tr>
+			<tr>
+				<td>Total</td>
+				<td id="a-pnl-7">$100,000</td>
+				<td id="a-roi-7">50%</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<h3>Positions</h3>
+	<table>
+		<thead>
+			<tr>
+				<th>Coin</th>
+				<th>Position</th>
+				<th>Entry Price</th>
+				<th>Size</th>
+				<th>Leverage</th>
+				<th>PNL</th>
+				<th>ROI</th>
+			</tr>
+		</thead>
+		<tbody id="position-rows-7">
+			<!-- <tr>
+				<td>Bitcoin</td>
+				<td>Long</td>
+				<td>$50,000</td>
+				<td>2 BTC</td>
+				<td>5x</td>
+				<td>$1,000</td>
+				<td>10%</td>
+			</tr>
+			<tr>
+				<td>Ethereum</td>
+				<td>Short</td>
+				<td>$2,000</td>
+				<td>2 ETH</td>
+				<td>2x</td>
+				<td>$500</td>
+				<td>5%</td>
+			</tr> -->
+		</tbody>
+	</table>
+
+
+	<!-- Repeat the above section for each trader -->
+	<script>
+
+
+		let userIDs = ["FE63D6040E22611D978B73064B3A2057","F3050271F9F3463B0EED70B412D6436F", "FB23E1A8B7E2944FAAEC6219BBDF8243", "2154D02AD930F6C6E65C507DD73CB3E7", "BC1CCB31BA947F98E6579362E9493824", "5F0A81D4A9A9F1E81EF8DF4FC5FC3688", "C6AF4AFA5030553941A15F925DCC40FF"] // make sure these match the order of trader headings
+
+		const apiUrl = "binance-futures-leaderboard1.p.rapidapi.com";
+		const headers = {
+				'X-RapidAPI-Key': "467157cd05mshb970c2bf96194acp1f1317jsn55233c04915d",
+				'X-RapidAPI-Host': "binance-futures-leaderboard1.p.rapidapi.com"
+			}
+
+		function getPositions(userId, position){
+
+			fetch(`https://${apiUrl}/v2/getTraderPositions?encryptedUid=${userId}`, {
+				'method':'GET',
+				'headers': headers
+			})
+			.then(resp=>resp.json())
+			.then(json=>{
+
+				let data = json['data'][0];
+				let positions = data['positions'];
+				console.log(positions)
+				let perp = positions['perpetual'];
+
+				perp.forEach(elem=>{
+					let returnString = "<tr>";
+					let coin = elem['symbol']
+					returnString += `<td>${coin}</td>`
+					let long = ((elem['long']?"Long":"Short"))
+					returnString+= `<td>${long}</td>`
+					let entryPrice = elem['entryPrice'].toFixed(2)
+					returnString+= `<td>${entryPrice}</td>`
+					let amount = elem['amount'];
+					returnString += `<td>${amount}</td>`
+					let leverage = elem['leverage']
+					returnString += `<td>${leverage}</td>`
+					let pnl = elem['pnl']
+					returnString+= `<td>${pnl}</td>`
+					let roi = elem['roe']
+					returnString +=  `<td>${roi}</td>`
+					returnString+= "</tr>"
+					document.getElementById(`position-rows-${position}`).innerHTML += returnString;
+
+				})
+
+			})
+		}
+
+		function getPerformance(userId, position){
+			fetch(`https://${apiUrl}/v1/getOtherPerformance?encryptedUid=${userId}`, {
+				'method':'GET',
+				'headers': headers
+			})
+			.then(resp=>resp.json())
+			.then(json=>{
+				let data = json['data']
+				data.forEach(element => {
+					if(element['periodType']=='WEEKLY' && element['statisticsType']=="ROI"){
+						let value = element['value'];
+						let tid = `w-roi-${position}`;
+						console.log(tid)
+						document.getElementById(tid).innerHTML = `${value}%`;
+					}
+					else if(element['periodType']=='WEEKLY' && element['statisticsType']=="PNL"){
+						let value = element['value'];
+						document.getElementById(`w-pnl-${position}`).innerHTML = `$${value}`;
+					}
+					else if(element['periodType']=='MONTHLY' && element['statisticsType']=="ROI"){
+						let value = element['value'];
+						let tid = `m-roi-${position}`;
+						console.log(tid)
+						document.getElementById(tid).innerHTML = `${value}%`;
+					}
+					else if(element['periodType']=='MONTHLY' && element['statisticsType']=="PNL"){
+						let value = element['value'];
+						document.getElementById(`m-pnl-${position}`).innerHTML = `$${value}`;
+					}
+					else if(element['periodType']=='ALL' && element['statisticsType']=="ROI"){
+						let value = element['value'];
+						let tid = `a-roi-${position}`;
+						console.log(tid)
+						document.getElementById(tid).innerHTML = `${value}%`;
+					}
+					else if(element['periodType']=='ALL' && element['statisticsType']=="PNL"){
+						let value = element['value'];
+						document.getElementById(`a-pnl-${position}`).innerHTML = `$${value}`;
+					}
+				});
+			})
+		}
+
+		for(let i=0;i<userIDs.length;i++){
+			let user = userIDs[i];
+			getPerformance(user, i+1)
+			getPositions(user, i+1)
+		}
+
+	</script>
+
+</body>
+
+{% endblock %}

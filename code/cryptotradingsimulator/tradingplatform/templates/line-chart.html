@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/ccxt"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+        google.charts.setOnLoadCallback(drawChart);
+
+        var chartData = [];
+
+        function drawChart() {
+            // Initialize the Binance exchange object
+            var exchange = new ccxt.binance();
+
+            // Get the historical data
+            exchange.fetchOHLCV('BTC/USDT', '1m').then((ohlcv) => {
+                // Extract the timestamp and close price
+                for (var i = 0; i < ohlcv.length; i++) {
+                    chartData.push([new Date(ohlcv[i][0]), ohlcv[i][4]]);
+                }
+
+                // Create the data table
+                var data = new google.visualization.DataTable();
+                data.addColumn('datetime', 'Time');
+                data.addColumn('number', 'Price');
+                data.addRows(chartData);
+
+                // Set the chart options
+                var options = {
+                    title: 'BTC/USD',
+                    legend: 'none',
+                    width: 900,
+                    height: 500,
+                    colors: ['green'],
+                    lineWidth: 1.7,
+                    backgroundColor: 'transparent'
+                };
+
+                // Create the chart object
+                var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+
+                // Draw the chart
+                chart.draw(data, options);
+
+                // Define the function to update the chart
+                function updateChart() {
+                    exchange.fetchOHLCV('BTC/USDT', '1m').then((ohlcv) => {
+                        // Extract the timestamp and close price
+                        var timestamp = new Date(ohlcv[ohlcv.length - 1][0]);
+                        var close = ohlcv[ohlcv.length - 1][4];
+
+                        // Add the new data point to the chart data
+                        chartData.push([timestamp, close]);
+
+                        // Update the data table
+                        data.addRow([timestamp, close]);
+
+                        // Set the chart options
+                        var options = {
+                            title: 'BTC/USD',
+                            legend: 'none',
+                            width: 900,
+                            height: 500,
+                            colors: ['green'],
+                            lineWidth: 1.7,
+                            backgroundColor: 'transparent'
+
+                        };
+
+                        // Create the chart object
+                        var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+
+                        // Draw the chart
+                        chart.draw(data, options);
+                    });
+                }
+
+                // Set the interval to update the chart every 60 seconds
+                setInterval(updateChart, 6000);
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <div id="chart_div"></div>
+</body>
+
+</html>

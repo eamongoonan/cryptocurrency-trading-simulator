@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}Homepage{% endblock %}
+{% block content %}
+
+<style>
+      .footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: #BEBEBE;
+      color: white;
+      text-align: center;
+}
+</style>
+
+{% if user.is_authenticated %}
+
+{% load static %}
+<body>
+<link rel="stylesheet" type="text/css" href="static/stylesheet.css" />
+
+<h1>Dashboard</h1>
+<hr/>
+
+{% if new_user %}
+<p>Hello, <b>{{ user.first_name }}</b>. Looks like you're new here.</p>
+<p>We have given you $7000 to begin your cryptocurrency trading journey.</p>
+<p>Why not head to the "Trade" page, and see if you can make an investment?</p>
+{% else %}
+<p>Hello <b>{{ user.first_name }}</b>, Welcome back to CryptoSim.</p>
+{% endif %}
+
+<div class="card" style="width: 25rem;">
+  <div class="card-header">
+    <b>{{ user.first_name }}'s Stats</b> {{ position.cryptocurrency }}
+  </div>
+  {% for user in platform_user %}
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">You have <b>{{ open_positions.count }}</b> open trades.</li>
+      <li class="list-group-item">All-time PNL (USD): <b> {{ user.PNL|floatformat:2 }} </b></li>
+      <li class="list-group-item">All-time ROI: <b>{{ user.ROI|floatformat:2 }}%</b></li>
+    </ul>
+  {% endfor %}
+
+{% else %}
+<h1>About Us...</h1>
+<hr/>
+<p>Hello, beginner trader! Welcome to CryptoSim. <br>
+    We are a simulated Cryptocurrency Trading Platform. <br>
+    We offer a risk-free environment for you to experiment with cryptocurrency investment strategies. <br> <br>
+Please register or login to start your crypto-trading journey.</p>
+
+{% endif %}
+
+
+<div class="footer">
+  <p>CryptoSim: "The Cryptocurrency Trading Simulator"</p>
+</div>
+
+{% endblock %}

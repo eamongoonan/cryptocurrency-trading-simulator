@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% block title %}Trade{% endblock %}
+
+{% block content %}
+
+<h1>Portfolio</h1>
+<hr/>
+<h2>Open Positions</h2>
+<p>Analyse or sell your open positions.</p>
+<br/>
+
+
+<div class="container-fluid">
+        <div class="row g-1">
+{% for position in open_positions %}
+          <div class="col-md-6">
+
+
+<div class="card" style="width: 25rem;">
+  <div class="card-header">
+    <b>Coin:</b> {{ position.cryptocurrency }}
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><b>Coin Amount:</b> {{ position.coin_amount|floatformat:6 }} </li>
+    <li class="list-group-item"><b>Purchased for:</b> ${{ position.USD_value_of_purchase }} </li>
+    <li class="list-group-item"><b>Current Value:</b> ${{ position.current_coin_value|floatformat:2 }} </li>
+    {% if position.ROI > 0 %}
+    <li class="list-group-item" style="color: mediumspringgreen"><b>ROI:</b> {{ position.ROI|floatformat:2 }}% ↑ </li>
+    {% else %}
+    <li class="list-group-item" style="color: red"><b>ROI:</b> {{ position.ROI|floatformat:2 }}% ↓ </li>
+    {% endif %}
+    <li class="list-group-item"><b>Purchase Date:</b> {{ position.created_at }} <br/></li>
+  </ul>
+</div>
+
+
+<form action="" method="POST">
+    {% csrf_token %}
+
+    {{ form }}
+
+    <input name="submit" type="submit"  value="Sell"
+           class = "btn btn-secondary">
+    <input type="hidden" value="{{ position.id }}" name="position_id">
+
+</form>
+<br/>
+<br/>
+
+</div>
+{% endfor %}
+</div>
+</div>
+<hr/>
+
+<h2>Closed Positions</h2>
+<p>Analyse your closed positions.</p>
+<br/>
+
+<div class="container-fluid">
+  <div class="row g-1">
+{% for position in closed_positions %}
+    <div class="col-md-6">
+
+<div class="card" style="width: 25rem;">
+  <div class="card-header">
+    <b>Coin:</b> {{ position.cryptocurrency }}
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><b>Coin Amount:</b> {{ position.coin_amount|floatformat:6 }} </li>
+    <li class="list-group-item"><b>Purchased for:</b> ${{ position.USD_value_of_purchase }} </li>
+    <li class="list-group-item"><b>Sold for:</b> ${{ position.USD_value_of_sale|floatformat:2 }} </li>
+    <li class="list-group-item"><b>PNL:</b> ${{ position.PNL|floatformat:2 }} </li>
+    {% if position.ROI > 0 %}
+    <li class="list-group-item" style="color: mediumspringgreen"><b>ROI:</b> {{ position.ROI|floatformat:2 }}% ↑ </li>
+    {% else %}
+    <li class="list-group-item" style="color: red"><b>ROI:</b> {{ position.ROI|floatformat:2 }}% ↓ </li>
+    {% endif %}
+      <li class="list-group-item"><b>Purchase Date:</b> {{ position.created_at }}</li>
+    <li class="list-group-item"><b>Sell Date:</b> {{ position.closed_at }}</li>
+  </ul>
+</div>
+
+<br/>
+      </div>
+{% endfor %}
+    </div>
+  </div>
+
+{% endblock %}
